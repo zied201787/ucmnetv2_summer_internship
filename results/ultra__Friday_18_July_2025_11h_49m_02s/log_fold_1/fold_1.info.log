@@ -1,0 +1,53 @@
+2025-07-18 11:49:19 - train: epoch 1, iter:0, loss: 0.1309, lr: 0.000200
+2025-07-18 11:49:24 - train: epoch 1, iter:20, loss: 0.3412, lr: 0.000200
+2025-07-18 11:49:29 - train: epoch 1, iter:40, loss: 0.3224, lr: 0.000200
+2025-07-18 11:49:33 - train: epoch 1, iter:60, loss: 0.3175, lr: 0.000200
+2025-07-18 11:49:38 - train: epoch 1, iter:80, loss: 0.3218, lr: 0.000200
+2025-07-18 11:49:43 - train: epoch 1, iter:100, loss: 0.3210, lr: 0.000200
+2025-07-18 11:49:48 - train: epoch 1, iter:120, loss: 0.3310, lr: 0.000200
+2025-07-18 11:49:53 - train: epoch 1, iter:140, loss: 0.3329, lr: 0.000200
+2025-07-18 11:50:00 - [Train] Epoch 1 | Loss: 0.3319 | Dice: 0.0000 | Acc: 0.8158 | SE: 0.0000 | SP: 1.0000
+2025-07-18 11:50:03 - val epoch: 1, loss: 0.2796, miou: 0.8719, f1_or_dsc: 0.9316, accuracy: 0.9737, specificity: 0.9902, sensitivity: 0.9067, confusion_matrix: [[7809270, 77670], [181248, 1762212]]
+2025-07-18 11:50:13 - test of best model, loss: 0.3156,miou: 0.8526424002446235, f1_or_dsc: 0.9204608510871178, accuracy: 0.9697655232747396,                 specificity: 0.9904139562104269, sensitivity: 0.8858567967803898, confusion_matrix: [[31253689   302499]
+ [  886369  6879043]]
+2025-07-18 11:50:13 - train: epoch 2, iter:0, loss: 0.3332, lr: 0.000199
+2025-07-18 11:50:18 - train: epoch 2, iter:20, loss: 0.3172, lr: 0.000199
+2025-07-18 11:50:23 - train: epoch 2, iter:40, loss: 0.3376, lr: 0.000199
+2025-07-18 11:50:28 - train: epoch 2, iter:60, loss: 0.3487, lr: 0.000199
+2025-07-18 11:50:33 - train: epoch 2, iter:80, loss: 0.3422, lr: 0.000199
+2025-07-18 11:50:38 - train: epoch 2, iter:100, loss: 0.3355, lr: 0.000199
+2025-07-18 11:50:42 - train: epoch 2, iter:120, loss: 0.3374, lr: 0.000199
+2025-07-18 11:50:47 - train: epoch 2, iter:140, loss: 0.3355, lr: 0.000199
+2025-07-18 11:50:55 - [Train] Epoch 2 | Loss: 0.3339 | Dice: 0.0000 | Acc: 0.8157 | SE: 0.0000 | SP: 1.0000
+2025-07-18 11:50:58 - val epoch: 2, loss: 0.2804, miou: 0.8724, f1_or_dsc: 0.9319, accuracy: 0.9731, specificity: 0.9838, sensitivity: 0.9296, confusion_matrix: [[7759532, 127408], [136791, 1806669]]
+2025-07-18 11:51:12 - test of best model, loss: 0.3132,miou: 0.8578692455219725, f1_or_dsc: 0.923497977685671, accuracy: 0.9701690673828125,                 specificity: 0.9845497181091708, sensitivity: 0.9117306332233241, confusion_matrix: [[31068636   487552]
+ [  685448  7079964]]
+2025-07-18 11:51:13 - train: epoch 3, iter:0, loss: 0.2774, lr: 0.000198
+2025-07-18 11:51:18 - train: epoch 3, iter:20, loss: 0.3123, lr: 0.000198
+2025-07-18 11:51:23 - train: epoch 3, iter:40, loss: 0.3148, lr: 0.000198
+2025-07-18 11:51:28 - train: epoch 3, iter:60, loss: 0.3341, lr: 0.000198
+2025-07-18 11:51:32 - train: epoch 3, iter:80, loss: 0.3176, lr: 0.000198
+2025-07-18 11:51:37 - train: epoch 3, iter:100, loss: 0.3231, lr: 0.000198
+2025-07-18 11:51:42 - train: epoch 3, iter:120, loss: 0.3345, lr: 0.000198
+2025-07-18 11:51:47 - train: epoch 3, iter:140, loss: 0.3293, lr: 0.000198
+2025-07-18 11:51:55 - [Train] Epoch 3 | Loss: 0.3285 | Dice: 0.0000 | Acc: 0.8155 | SE: 0.0000 | SP: 1.0000
+2025-07-18 11:51:59 - val epoch: 3, loss: 0.2767, miou: 0.8758, f1_or_dsc: 0.9338, accuracy: 0.9739, specificity: 0.9845, sensitivity: 0.9307, confusion_matrix: [[7765080, 121860], [134635, 1808825]]
+2025-07-18 11:52:11 - test of best model, loss: 0.3168,miou: 0.8535572722955468, f1_or_dsc: 0.9209936860903734, accuracy: 0.9691097259521484,                 specificity: 0.9832365366818071, sensitivity: 0.9117028175710445, confusion_matrix: [[31027197   528991]
+ [  685664  7079748]]
+2025-07-18 11:52:11 - train: epoch 4, iter:0, loss: 0.2894, lr: 0.000195
+2025-07-18 11:52:16 - train: epoch 4, iter:20, loss: 0.3164, lr: 0.000195
+2025-07-18 11:52:21 - train: epoch 4, iter:40, loss: 0.3088, lr: 0.000195
+2025-07-18 11:52:26 - train: epoch 4, iter:60, loss: 0.3003, lr: 0.000195
+2025-07-18 11:52:31 - train: epoch 4, iter:80, loss: 0.3343, lr: 0.000195
+2025-07-18 11:52:36 - train: epoch 4, iter:100, loss: 0.3357, lr: 0.000195
+2025-07-18 11:52:41 - train: epoch 4, iter:120, loss: 0.3345, lr: 0.000195
+2025-07-18 11:52:46 - train: epoch 4, iter:140, loss: 0.3381, lr: 0.000195
+2025-07-18 11:52:54 - [Train] Epoch 4 | Loss: 0.3412 | Dice: 0.0000 | Acc: 0.8155 | SE: 0.0000 | SP: 1.0000
+2025-07-18 11:52:57 - val epoch: 4, loss: 0.2834, miou: 0.8731, f1_or_dsc: 0.9323, accuracy: 0.9735, specificity: 0.9864, sensitivity: 0.9214, confusion_matrix: [[7779487, 107453], [152714, 1790746]]
+2025-07-18 11:53:09 - test of best model, loss: 0.3203,miou: 0.8515465533710391, f1_or_dsc: 0.9198219205676047, accuracy: 0.9689339447021484,                 specificity: 0.9853211674363203, sensitivity: 0.9023414340411043, confusion_matrix: [[31092980   463208]
+ [  758359  7007053]]
+2025-07-18 11:53:10 - train: epoch 5, iter:0, loss: 0.4281, lr: 0.000191
+2025-07-18 11:53:14 - train: epoch 5, iter:20, loss: 0.3290, lr: 0.000191
+2025-07-18 11:53:20 - train: epoch 5, iter:40, loss: 0.3112, lr: 0.000191
+2025-07-18 11:53:25 - train: epoch 5, iter:60, loss: 0.3146, lr: 0.000191
+2025-07-18 11:53:30 - train: epoch 5, iter:80, loss: 0.3284, lr: 0.000191

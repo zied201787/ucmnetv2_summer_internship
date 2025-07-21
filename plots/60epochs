@@ -1,0 +1,16 @@
+#----------Testing----------#
+100%|████████████████████████████████████████████████████████████████████████████████| 600/600 [00:33<00:00, 18.11it/s]
+test_datasets_name: 1
+test of best model, loss: 1.8127,miou: 0.8246423260259896, f1_or_dsc: 0.9038947680469884, accuracy: 0.9639875793457031,                 specificity: 0.9802362225597423, sensitivity: 0.8944207121132042, confusion_matrix: [[31246299   629996]
+ [  786070  6659235]]
+ **********************************
+ lernable paramtre v5.2
+ 100%|████████████████████████████████████| 600/600 [00:28<00:00, 21.14it/s]
+test_datasets_name: 1
+test of best model, loss: 1.2521,miou: 0.831181941341637, f1_or_dsc: 0.9078092379314988, accuracy: 0.9652833048502604,                 specificity: 0.9798906993425679, sensitivity: 0.9027432724381338, confusion_matrix: [[31235285   641010]
+ [  724106  6721199]]
+ **************************
+ not good start  all from 1 and converge maybe in long term ?
+test_datasets_name: 1
+test of best model, loss: 1.2767,miou: 0.827981004859476, f1_or_dsc: 0.9058967272180447, accuracy: 0.9643516031901042,                 specificity: 0.9779298064596278, sensitivity: 0.9062179454031769, confusion_matrix: [[31172779   703516]
+ [  698236  6747069]]

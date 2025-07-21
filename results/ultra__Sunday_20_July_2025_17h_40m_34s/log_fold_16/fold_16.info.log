@@ -1,0 +1,22 @@
+2025-07-20 23:12:20 - train: epoch 1, iter:0, loss: 1.3980, lr: 0.000200
+2025-07-20 23:12:25 - train: epoch 1, iter:20, loss: 2.3247, lr: 0.000200
+2025-07-20 23:12:30 - train: epoch 1, iter:40, loss: 2.3472, lr: 0.000200
+2025-07-20 23:12:35 - train: epoch 1, iter:60, loss: 2.5062, lr: 0.000200
+2025-07-20 23:12:40 - train: epoch 1, iter:80, loss: 2.4321, lr: 0.000200
+2025-07-20 23:12:45 - train: epoch 1, iter:100, loss: 2.4419, lr: 0.000200
+2025-07-20 23:12:50 - train: epoch 1, iter:120, loss: 2.4207, lr: 0.000200
+2025-07-20 23:12:55 - train: epoch 1, iter:140, loss: 2.4128, lr: 0.000200
+2025-07-20 23:13:03 - [Train] Epoch 1 | Loss: 2.4694 | Dice: 0.0000 | Acc: 0.8120 | SE: 0.0000 | SP: 1.0000
+2025-07-20 23:13:06 - val epoch: 1, loss: 2.8824, miou: 0.8202, f1_or_dsc: 0.9012, accuracy: 0.9655, specificity: 0.9699, sensitivity: 0.9437, confusion_matrix: [[7946780, 246590], [92100, 1544930]]
+2025-07-20 23:13:18 - test of best model, loss: 1.3244,miou: 0.840958994771164, f1_or_dsc: 0.9136096970760583, accuracy: 0.9651473999023438,                 specificity: 0.9730128683477232, sensitivity: 0.9331846140294938, confusion_matrix: [[30704577   851611]
+ [  518849  7246563]]
+2025-07-20 23:13:18 - train: epoch 2, iter:0, loss: 1.9243, lr: 0.000199
+2025-07-20 23:13:23 - train: epoch 2, iter:20, loss: 2.3789, lr: 0.000199
+2025-07-20 23:13:28 - train: epoch 2, iter:40, loss: 2.4987, lr: 0.000199
+2025-07-20 23:13:33 - train: epoch 2, iter:60, loss: 2.4475, lr: 0.000199
+2025-07-20 23:13:38 - train: epoch 2, iter:80, loss: 2.3927, lr: 0.000199
+2025-07-20 23:13:43 - train: epoch 2, iter:100, loss: 2.3881, lr: 0.000199
+2025-07-20 23:13:48 - train: epoch 2, iter:120, loss: 2.3620, lr: 0.000199
+2025-07-20 23:13:53 - train: epoch 2, iter:140, loss: 2.3604, lr: 0.000199
+2025-07-20 23:14:02 - [Train] Epoch 2 | Loss: 2.3192 | Dice: 0.0000 | Acc: 0.8119 | SE: 0.0000 | SP: 1.0000
+2025-07-20 23:14:05 - val epoch: 2, loss: 2.4693, miou: 0.8387, f1_or_dsc: 0.9123, accuracy: 0.9702, specificity: 0.9783, sensitivity: 0.9297, confusion_matrix: [[8015632, 177738], [115011, 1522019]]
