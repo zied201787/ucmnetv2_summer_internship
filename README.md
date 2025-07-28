@@ -1,45 +1,39 @@
 # UCM-NetV2
 
-This is the official code repository for "UCM-NetV2 and BNN-UCM-NetV2: Efficient and Accurate Deep Learning Models for Skin Lesion Segmentation " 
+This is the official code repository for:
 
-**Prepare the dataset.**
+**"UCM-NetV2 and BNN-UCM-NetV2: Efficient and Accurate Deep Learning Models for Skin Lesion Segmentation on Mobile Devices"**
 
-- The ISIC2017 and ISIC2018 datasets,which follows the same as UltraLight-VM-UNet , can be found here {[One Drive]}. 
-- {[ISIC2017](https://cuny547-my.sharepoint.com/:u:/g/personal/cyuan1_gradcenter_cuny_edu/EcNlo_WWGVJBtAf_F6AFrrABmSAJi9J3TlHwrnsW8ccOPw?e=NRScI8)}
-- {[ISIC2018](https://cuny547-my.sharepoint.com/:u:/g/personal/cyuan1_gradcenter_cuny_edu/EZr0xZCCRJZBv9HW4dYWr94BlHmD_9dg6k1QbnzMmH6Asw?e=RVDise)}
--  (PS: you can use above link to directly download the dataset and put them in the data folder or use UltraLight-VM-UNet code to generate the division of dataset)
+---
 
+## 🧠 Overview
 
-**Train the UCMV2-UNet.**
-```
-cd UCMV2-UNet
-```
+**UCM-NetV2** is a lightweight, accurate segmentation model designed to run efficiently on mobile and edge devices.  
+It is an **improved version** of [UltraLight-VM-UNet](https://github.com/wurenkai/UltraLight-VM-UNet), featuring enhanced performance, better generalization, and added support for **fine-tuning** via `.npy` datasets.
 
-```
-# ISIC2017 
-python trainucm.py  --data ISIC2017 
+This repository includes:
+- UCM-NetV2 architecture implementation
+- Scripts for training and testing
+- A **Colab-ready fine-tuning notebook**
+- Utilities to merge datasets into `.npy` format
 
-```
-```
-# ISIC2018 
-python trainucm.py  --data ISIC2018
+---
 
-```
+## 📦 Dataset Preparation
 
+We use both **ISIC2017** and **ISIC2018** datasets.  
+You can download them from the following links:
 
+- 📥 [ISIC2017 Download](https://cuny547-my.sharepoint.com/:u:/g/personal/cyuan1_gradcenter_cuny_edu/EcNlo_WWGVJBtAf_F6AFrrABmSAJi9J3TlHwrnsW8ccOPw?e=NRScI8)
+- 📥 [ISIC2018 Download](https://cuny547-my.sharepoint.com/:u:/g/personal/cyuan1_gradcenter_cuny_edu/EZr0xZCCRJZBv9HW4dYWr94BlHmD_9dg6k1QbnzMmH6Asw?e=RVDise)
 
-** Citation **
-```
-@article{yuan2024ucm,
-  title={UCM-NetV2 and BNN-UCM-NetV2: Efficient and Accurate Deep Learning Models for Skin Lesion Segmentation on Mobile Devices},
-  author={Yuan, Chunyu and Zhao, Dongfang and Agaian, Sos S},
-  year={2024},
-  publisher={Preprints}
-}
+---
 
-```
-**Acknowledgement.**
+## 🔁 Merge Datasets into `.npy`
 
-Some code,dataset generaation, data loading, model trainning , are cited from UltraLight-VM-UNet {[UltraLight-VM-UNet ](https://github.com/wurenkai/UltraLight-VM-UNet)}.
+To fine-tune or test UCM-NetV2 using the provided notebook, you'll need to **merge ISIC2017 and ISIC2018** into single `.npy` files.
 
-We thank their wonderful works!
+You can use our merging script:
+
+```bash
+python merge_datasets.py
