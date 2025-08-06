@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skin Detector Web</title>
+  <style>
+    /* Reset */
+   /* Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Title */
+h1 {
+  margin: 40px 0 20px;
+  color: #00695c;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+/* Container Card */
+.container {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.container:hover {
+  transform: translateY(-3px);
+}
+
+/* File Input */
+input[type="file"] {
+  display: none;
+}
+
+label[for="imageInput"] {
+  cursor: pointer;
+  background: linear-gradient(145deg, #008080, #00b3b3);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
+}
+label[for="imageInput"]:hover {
+  background: linear-gradient(145deg, #006666, #009999);
+  transform: scale(1.05);
+}
+
+/* Scan Button */
+button {
+  background: linear-gradient(145deg, #2ecc71, #27ae60);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3);
+}
+button:hover {
+  background: linear-gradient(145deg, #219150, #1e874d);
+  transform: scale(1.03);
+}
+button:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Image Wrapper */
+#imageWrapper {
+  position: relative;
+  max-width: 400px;
+  margin: 20px auto;
+}
+#originalImage {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 150, 136, 0.2);
+  background: #e0f2f1;
+}
+#maskCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 12px;
+  pointer-events: none;
+  border: 2px solid #00b3b3;
+}
+
+/* Range Slider */
+#opacityRange {
+  width: 100%;
+  margin-bottom: 20px;
+  appearance: none;
+  height: 6px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #ff6f61, #ffb74d);
+  outline: none;
+}
+#opacityRange::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ff6f61;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#opacityRange::-webkit-slider-thumb:hover {
+  background: #e65100;
+}
+
+/* Section Title */
+.section-title {
+  margin: 30px 0 10px;
+  font-weight: 700;
+  color: #004d4d;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 0.9rem;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Skin Detector</h1>
+  <div class="container">
+    <label for="imageInput">Choose Image</label>
+    <input type="file" id="imageInput" accept="image/*" />
+
+    <div class="section-title">Original Image</div>
+    <div id="imageWrapper">
+      <img id="originalImage" alt="Original Image" />
+      <canvas id="maskCanvas"></canvas>
+    </div>
+
+    <button id="scanButton" disabled>Scan Cancer</button>
+
+    <label for="opacityRange" class="section-title">Mask Transparency</label>
+    <input type="range" id="opacityRange" min="0" max="1" step="0.01" value="0.5" />
+
+  </div>
+
+  <script>
+    const imageInput = document.getElementById('imageInput');
+    const scanButton = document.getElementById('scanButton');
+    const originalImage = document.getElementById('originalImage');
+    const maskCanvas = document.getElementById('maskCanvas');
+    const ctx = maskCanvas.getContext('2d');
+    const opacityRange = document.getElementById('opacityRange');
+
+    let selectedFile = null;
+
+    imageInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      selectedFile = file;
+      scanButton.disabled = false;
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        originalImage.src = event.target.result;
+        // Clear previous mask
+        ctx.clearRect(0, 0, maskCanvas.width, maskCanvas.height);
+        // Reset canvas size
+        maskCanvas.width = 0;
+        maskCanvas.height = 0;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    scanButton.addEventListener('click', async () => {
+      if (!selectedFile) {
+        alert('Please select an image first!');
+        return;
+      }
+
+      scanButton.disabled = true;
+      scanButton.textContent = 'Scanning...';
+
+      const formData = new FormData();
+      formData.append('image', selectedFile);
+
+      try {
+        const response = await fetch('http://127.0.0.1:5000/predict', {
+          method: 'POST',
+          body: formData,
+        });
+        if (!response.ok) {
+          alert('Server error: ' + response.status);
+          scanButton.disabled = false;
+          scanButton.textContent = 'Scan Cancer';
+          return;
+        }
+        const data = await response.json();
+        console.log(data);
+
+        // data.prediction_mask is a 4D array: [batch][channel][height][width]
+        // We'll take the first batch, first channel slice
+        const mask = data.prediction_mask[0][0];
+        const height = mask.length;
+        const width = mask[0].length;
+
+        console.log('Mask dimensions:', height, width);
+        console.log('Sample mask row:', mask[0]);
+
+        // 1. Create ImageData for raw mask
+        const imageData = ctx.createImageData(width, height);
+        for (let y = 0; y < height; y++) {
+          for (let x = 0; x < width; x++) {
+            const idx = (y * width + x) * 4;
+            const val = mask[y][x] * 255;
+            imageData.data[idx] = val;      // R
+            imageData.data[idx + 1] = 0;    // G
+            imageData.data[idx + 2] = 0;    // B
+            imageData.data[idx + 3] = 255;  // A (opaque)
+          }
+        }
+
+        // 2. Get displayed image size
+        const displayWidth = originalImage.clientWidth;
+        const displayHeight = originalImage.clientHeight;
+
+        // 3. Set canvas size to displayed image size
+        maskCanvas.width = displayWidth;
+        maskCanvas.height = displayHeight;
+
+        // 4. Draw mask into offscreen canvas
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = width;
+        tempCanvas.height = height;
+        const tempCtx = tempCanvas.getContext('2d');
+        tempCtx.putImageData(imageData, 0, 0);
+
+        // 5. Clear and draw scaled mask onto visible canvas
+        ctx.clearRect(0, 0, maskCanvas.width, maskCanvas.height);
+        ctx.drawImage(tempCanvas, 0, 0, displayWidth, displayHeight);
+
+        // Set initial opacity from slider
+        maskCanvas.style.opacity = opacityRange.value;
+
+      } catch (error) {
+        alert('Error: ' + error.message);
+      } finally {
+        scanButton.disabled = false;
+        scanButton.textContent = 'Scan Cancer';
+      }
+    });
+
+    // Update mask opacity on slider input
+    opacityRange.addEventListener('input', () => {
+      maskCanvas.style.opacity = opacityRange.value;
+    });
+  </script>
+</body>
+</html>
